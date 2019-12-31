@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Portfolio</title>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,700" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/b2ec1cb26d.js" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-blue">
+        <div class="container">
+            
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="border:none;">
+        <span class="navbar-toggler-icon" style="color:#FBFA04"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" id="project">Dodaj projekt</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="achievement">Dodaj osiągnięcie</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="projectPhoto">Dodaj zdjęcie do projektu</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="editPhoto">Edytuj "profilowe" projektu</a>
+            </li>
+            
+        </ul>
+       
+      </div>	
+        </div>	
+     
+        
+        
+    </nav>
+    <br>
+    <br>
+    <br>
+    <div class="container" id="addProject">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-lg-12">
+				<div class="card">
+					<br>
+					<div class="card-title text-center" id="name">
+						Dodaj projekt
+					</div>
+					<div class="card-body">
+						<form action="/projects" method="post" enctype="multipart/form-data">
+							<p class="normalf">Tytuł projektu</p>
+							<input type="text" name="title" placeholder="Tytuł projektu" class="form-control">
+							<br>
+							<p class="normalf">Opis projektu</p>
+							<textarea name="description" placeholder="Opis projektu" class="form-control" style=" background: none;
+								color: #01597c;
+								border-bottom: 1px solid #01597c;
+								border-top: none;
+								border-right: none;
+								border-left: none;"></textarea>
+							<br>
+							<p class="normalf">Status projektu</p>
+							<input type="text" name="status" placeholder="Status projektu" class="form-control">
+							<br>
+							<p class="normalf">Link do projektu</p>
+							<input type="text" name="link" placeholder="Link do projektu" class="form-control">
+							<br>
+							<p class="normalf">Zdjęcie główne projektu</p>
+							
+							<input type="file" name="profile">
+							<br>
+							<br>
+							<input type="submit" value="Dodaj projekt" class="btn btn-outline-primary">
+						</form>
+					</div>
+				</div>
+                
+            </div>
+        </div>
+    </div>
+        <div class="container" id="addAchievement">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-lg-12">
+					<div class="card">
+						<br>
+						<div class="card-title text-center" id="name">
+							Dodaj osiągnięcie
+						</div>
+						<div class="card-body">
+							<form action="/achievements" method="post" enctype="multipart/form-data">
+								<p class="normalf">
+									Tytuł osiągnięcia
+								</p>
+								<input type="text" name="title" placeholder="Tytuł osiagnięcia" class="form-control">
+								<br>
+								<p class="normalf">
+									Zdjęcie osiągnięcia
+								</p>
+								<input type="file" name="picture">
+								<br>
+								<br>
+								<input type="submit" value="Dodaj osiągnięcie" class="btn btn-outline-primary">
+							</form>
+						</div>
+					</div>
+                    
+                </div>
+            </div>
+        </div>
+            <div class="container" id="addProjectPhoto">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 col-lg-12">
+						<div class="card">
+							<br>
+							<div class="card-title text-center" id="name">
+								Dodaj zdjęcie do projektu
+							</div>
+							<div class="card-body">
+								 <form action="/projects/new/picture" method="post" enctype="multipart/form-data">
+									 <p class="normalf">
+										Wybierz tytuł projektu	 
+									 </p>
+									<select name="title" class="form-control" style="background: none;
+										color: #01597c;
+										border-bottom: 2px solid #01597c;
+										border-top: none;
+										border-right: none;
+										border-left: none;">
+										<% for(let i=0;i<projects.length;i++){ %>
+											<option><%= projects[i].title %></option>
+										<% } %>
+									</select>
+									<br>
+									 <p class="normalf">
+										 Wybierz zdjęcie
+									 </p>
+									<input type="file" name="picture">
+									<br>
+									<br>
+									<input type="submit" value="Dodaj zdjęcie do projektu" class="btn btn-outline-primary">
+								</form>
+							</div>
+						</div>
+                       
+                    </div>
+                </div>
+            </div>
+            <div class="container" id="editProjectPhoto">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 col-lg-12">
+						<div class="card">
+							<br>
+							<div class="card-title text-center" id="name">
+								Edytuj zdjęcie główne do projektu
+							</div>
+							<div class="card-body">
+								 <form action="/projects/edit/picture" method="post" enctype="multipart/form-data">
+									 <p class="normalf">
+										 Wybierz projekt
+									 </p>
+									<select name="title" class="form-control" style="background: none;
+												color: #01597c;
+												border-bottom: 2px solid #01597c;
+												border-top: none;
+												border-right: none;
+												border-left: none;">
+										<% for(let i=0;i<projects.length;i++){ %>
+											<option><%= projects[i].title %></option>
+										<% } %>
+									</select>
+									<br>
+									<p class="normalf">
+										Wybierz zdjęcie
+									 </p>
+									<input type="file" name="picture">
+									<br>
+									<br>
+									<input type="submit" value="Edytuj zdjęcie główne do projektu" class="btn btn-outline-primary">
+								</form>
+							</div>
+						</div>
+                       
+                    </div>
+                </div>
+            </div>
+    <script>
+        $('#addAchievement').hide();
+        $('#addProjectPhoto').hide();
+        $('#editProjectPhoto').hide();
+
+        $("#achievement").on('click', function(){
+            $('#addAchievement').show();
+            $('#addProjectPhoto').hide();
+            $('#addProject').hide();
+            $('#editProjectPhoto').hide();
+        });
+
+        $("#project").on('click', function(){
+            $('#addAchievement').hide();
+            $('#addProjectPhoto').hide();
+            $('#addProject').show();
+            $('#editProjectPhoto').hide();
+        });
+
+        $("#projectPhoto").on('click', function(){
+            $('#addAchievement').hide();
+            $('#addProjectPhoto').show();
+            $('#addProject').hide();
+            $('#editProjectPhoto').hide();
+        });
+        $("#editPhoto").on('click', function(){
+            $('#addAchievement').hide();
+            $('#addProjectPhoto').hide();
+            $('#addProject').hide();
+            $('#editProjectPhoto').show();
+        });
+    </script>
+</body>
+</html>

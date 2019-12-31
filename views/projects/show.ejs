@@ -1,0 +1,119 @@
+<% include ../partials/header %>
+<br>
+<br>
+<br>
+    <div class="container">
+       
+            <div class="row">
+               
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <img src="<%= project.profile %>" alt="Strona" class="card-img-top">
+                            <br>
+                            <div class="card-title text-center" id="name"><%= project.title %></div>
+                            <div class="card-body">
+                                <p class="normal">Status: <strong><%= language.__(project.status) %></strong> </p>
+                                <p class="normal">Link: 
+                                    <% if(project.link ===""){ %>
+                                        <strong><%= language.__("Nie mam jeszcze gotowego linku do projektu") %></strong>
+                                    <% } else { %>
+                                      <strong><span><a href="<%= project.link %>" target="_blank"><%= project.link %></a></span></strong> 
+                                    <% } %> 
+                                </p>
+                                <p class="normal"><%= language.__(project.description) %></p>
+                                <% if(project.pictures.length===0){ %>
+                                    <p id="name"><%= language.__("Galeria") %></p>
+                                    <div class="alert alert-info" role="alert">
+                                        <%= language.__("Nie mam żadnych zdjęć do") %> <%= project.title %>
+                                    </div>
+                                <% } else { %>
+                                    <p id="name"><%= language.__("Galeria") %></p>
+                                    <div class="row">
+                                        <div class="col-lg-4 col-md-12">
+                                            <% for(let i=0; i<project.pictures.length; i++){ %>
+                                                <img src="<%= project.pictures[i] %>" alt="" class="img-thumbnail">
+                                            <% } %> 
+                                        </div>
+                                    </div>
+                                    
+                                <% } %>
+                                <% if(typeof currentUser !== 'undefined'){ %>
+                                    <% if(currentUser === "Admin"){ %>
+                                        <a href="/projects/<%= project._id %>/edit" class=" d-inline btn btn-outline-success">Edytuj</a>
+                                        <form action="/projects/<%= project._id %>?_method=DELETE" method="post" class="d-inline">
+                                            <input type="submit" value="Usuń" class="btn btn-outline-danger">
+                                        </form>
+                                    <% } %>
+                                       
+                                  
+                                    
+                                <% } %>
+                            </div>
+                            <div class="card-footer">
+                                <div id="name"><%= language.__('Opinie o') %> <%= project.title %></div>
+                                <br>
+                               
+                                <% if(typeof reviews !== 'undefined'){ %>
+                                    <% if(reviews.length === 0){ %>
+                                        <div class="alert alert-light" role="alert">
+                                            <%= language.__('Nikt na razie nie dodał opinii o projekcie') %> <%= project.title %> <% if(lang === "en"){ %>
+                                                project
+                                            <% } %>                                        
+                                        </div>
+                                        <a href="/projects/<%= project._id %>/reviews/new" class="btn btn-outline-primary"><%= language.__('Dodaj opinię') %></a>
+                                    
+                                    <% } else { %>
+                                        <a href="/projects/<%= project._id %>/reviews/new" class="btn btn-outline-primary" style="margin-bottom:  5%;"><%= language.__('Dodaj opinię') %></a>
+                                        <br>
+                                        <div style="height: 400px; overflow-y: scroll;">
+                                            <% for(let i=reviews.length-1; i>=0; i--){ %>
+                                                <div id="ratingDiv">
+                                                    <% for(let j=1;j<=5;j++){ %>
+                                                        <% if(j <= reviews[i].stars){ %>
+                                                            <div class="star d-inline" id="<%= j %>" style="color: goldenrod;"><i class="fas fa-star"></i></div>
+                                                        <% } else { %>
+                                                            <div class="star d-inline" id="<%= j %>"><i class="fas fa-star"></i></div>
+                                                        <% } %>
+                                                       
+                                                    <% } %>
+                                                    
+                                                </div>
+                                                <br>
+                                                <p class="author"><%= reviews[i].author.username %> </p>
+                                                <p class="normal"><%= reviews[i].text %></p>
+                                                
+                                                <p class="date"><%= reviews[i].written.toLocaleDateString() %></p>
+                                                <% if(typeof currentUser !== 'undefined'){ %>
+                                                    <% if(currentUser.username){ %>
+                                                        <div class="d-inline">
+                                                            <a href="/projects/<%= project._id %>/reviews/<%= reviews[i]._id %>/edit" class="normal"><%= language.__('Edytuj') %></a>
+                                                            <a href="/projects/<%= project._id %>/reviews/<%= reviews[i]._id %>/delete" class="normal"><%= language.__('Usuń') %></a>
+                                                        </div>
+                                                        
+                                                    <% } %>
+                                                <% } %>
+                                                <hr>
+                                            <% } %>
+                                        </div>
+                                    <% } %>
+                                <% } else { %>
+                                    <div class="alert alert-light" role="alert">
+                                            <%= language.__('Nikt na razie nie dodał opinii o projekcie') %> <%= project.title %> <% if(lang === "en"){ %>
+                                                project
+                                            <% } %> 
+                                    </div>
+                                    <a href="/projects/<%= project._id %>/reviews/new" class="btn btn-outline-primary"><%= language.__('Dodaj opinię') %></a>
+                                    
+                                <% } %>
+                                
+                            </div>
+                        </div>
+                    </div>
+               
+                   
+            </div>
+           
+       
+    </div>
+ 
+<% include ../partials/footer %>

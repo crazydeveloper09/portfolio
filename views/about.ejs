@@ -1,0 +1,45 @@
+<% include ./partials/header %>
+<br>
+<br>
+<br>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-title text-center" id="name"><%= language.__("O mnie") %></div>
+                <div class="card-body">
+                    <p class="normal"><%= language.__(user.about) %></p>
+                    <p class="text-center" id="name"><%= language.__("Osiągnięcia") %></p>
+                    <% if(user.achievements.length==0){ %>
+                        <div class="alert alert-info" role="alert">
+                           <%= language.__("Nie mam żadnych osiągnięć") %> 
+                        </div>
+                    <% } else { %>
+                        <div class="row">
+                            <% for(let i=0; i<user.achievements.length;i++){ %>
+                                <div class="col-lg-4 col-md-12">
+                                    <h1 id="name" class="text-center"><%= language.__(user.achievements[i].title) %></h1>
+                                    <img src="<%= user.achievements[i].picture %>" alt="" class="img-thumbnail">
+                                   
+                                </div>
+                            <% } %> 
+                        </div>
+                    <% } %>
+                    <% if(typeof currentUser !== 'undefined'){ %>
+						<% if(currentUser === "Admin"){ %>
+							<div class="d-inline">
+                             	<a href="/user/<%= user._id %>/edit" class="btn btn-outline-success">Edytuj</a>
+                             
+                        	</div>
+						<% } %>
+                       
+                         
+                     <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+<% include ./partials/footer %>
