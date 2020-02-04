@@ -42,6 +42,13 @@
   color: #01597c;
   font-size:15px;
 }
+
+.update {
+  font-family: 'Nunito', sans-serif;
+ 
+  color: rgb(117, 116, 116);
+  font-size:13px;
+}
 .author {
   font-family: 'Nunito', sans-serif;
   font-weight: 700;    
@@ -68,7 +75,21 @@ input[type=text]::placeholder,
 input[type=password]::placeholder {
 	font-family: 'Nunito', sans-serif;
     
-    color: #01597c;
+  color: #01597c;
+}
+#description::placeholder {
+  font-family: 'Nunito', sans-serif;
+    
+  color: #01597c;
 }
 
+#description {
+  background: none;
+	color: #01597c;
+	border-bottom: 1px solid #01597c;
+	border-top: none;
+	border-right: none;
+  border-left: none;
+}
+ 
   

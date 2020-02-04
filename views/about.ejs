@@ -27,7 +27,7 @@
                         </div>
                     <% } %>
                     <% if(typeof currentUser !== 'undefined'){ %>
-						<% if(currentUser === "Admin"){ %>
+						<% if(currentUser.username === "Admin"){ %>
 							<div class="d-inline">
                              	<a href="/user/<%= user._id %>/edit" class="btn btn-outline-success">Edytuj</a>
                              
@@ -36,6 +36,41 @@
                        
                          
                      <% } %>
+                    <p class="text-center" id="name"><%= language.__("Oprócz programowania bardzo lubię muzykę") %></p>
+                    <p class="normal"><%= language.__("Gram na instrumentach - gitara akustyczna i keyboard") %></p>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-12 tetx-center">
+                            <audio src="/151.mp3" controls="controls"></audio>
+                        </div>
+                        <div class="col-lg-4 col-md-12 text-center">
+                            <audio src="/30_sama_gitara.mp3" controls="controls"></audio>
+                        </div>
+                        <div class="col-lg-4 col-md-12 text-center">
+                            <audio src="/unfailing_love.mp3" controls="controls"></audio>
+                        </div>
+                    </div>
+                    <br>
+                    <p class="normal"><%= language.__("Ulubione piosenki") %></p>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-12 text-center" style="margin-top: 8px">
+                            <iframe src="https://www.youtube.com/embed/fbHbTBP_u7U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>    
+                        <div class="col-lg-4 col-md-12 text-center" style="margin-top: 8px">
+                            <iframe src="https://www.youtube.com/embed/GpcZYS7fXtg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="col-lg-4 col-md-12 text-center" style="margin-top: 8px">
+                            <iframe src="https://www.youtube.com/embed/bT3MtnijvFU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="col-lg-4 col-md-12 text-center" style="margin-top: 8px">
+                            <iframe src="https://www.youtube.com/embed/_FB6nO_qZQ4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="col-lg-4 col-md-12 text-center" style="margin-top: 8px">
+                            <iframe src="https://www.youtube.com/embed/B-xvhvsiH-g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="col-lg-4 col-md-12 text-center" style="margin-top: 8px">
+                            <iframe src="https://www.youtube.com/embed/1O1tj2phCQY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

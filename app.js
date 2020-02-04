@@ -85,10 +85,8 @@ const projectSchema = new mongoose.Schema({
             ref: "Comment"
         }
     ],
-    stars: {
-        number: Number,
-        iterate: Number
-    }
+    added: Date,
+    type: String
 });
 
 let Project = mongoose.model("Project", projectSchema);
@@ -143,8 +141,9 @@ app.get("/", function(req, res){
         if(err) {
             console.log(err);
         } else {
-			i18n.setLocale(req.language)
-            res.render("index", {currentUser: req.user, projects: projects, header: "Maciej Kuta | Portfolio | Home", home:""});
+            i18n.setLocale(req.language);
+         
+            res.render("index", {currentUser: req.user, projects: projects,type:req.params.type, header: "Maciej Kuta | Portfolio | Home", home:""});
         }
     });
 });
@@ -163,14 +162,14 @@ app.get("/about", function(req, res){
             console.log(err);
         } else {
             i18n.setLocale(req.language);
-            res.render("about", {currentUser: req.user, user:user, header: "Maciej Kuta | Portfolio | O mnie", about:""});
+            res.render("about", {currentUser: req.user, user:user,type:req.params.type, header: "Maciej Kuta | Portfolio | O mnie", about:""});
         }
     });
    
 });
 
 app.post("/login", passport.authenticate("local", {
-    successRedirect: "/projects/last",
+    successRedirect: "/",
     failureRedirect: "/login",
     failureFlash: true
 }), function(req, res) {
@@ -210,7 +209,7 @@ app.get("/projects/:project_id/reviews/new", isLoggedIn, function(req, res){
             console.log(err);
         } else {
             i18n.setLocale(req.language);
-            res.render("./reviews/new", { project:project, currentUser: req.user, header: "Maciej Kuta | Portfolio | " + project.title + " | Nowa opinia", lang: req.language});
+            res.render("./reviews/new", { project:project, currentUser: req.user,type:req.params.type, header: "Maciej Kuta | Portfolio | " + project.title + " | Nowa opinia", lang: req.language});
         }
     });
     
@@ -250,7 +249,7 @@ app.get("/projects/:project_id/reviews/:review_id/edit", isLoggedIn, function(re
                     console.log(err);
                 } else {
                     i18n.setLocale(req.language);
-                    res.render("./reviews/edit", { project:project, currentUser: req.user, review:review, header: "Maciej Kuta | Portfolio | " + project.title + " | Edytuj opinię", lang: req.language});
+                    res.render("./reviews/edit", { project:project, currentUser: req.user,type:req.params.type, review:review, header: "Maciej Kuta | Portfolio | " + project.title + " | Edytuj opinię", lang: req.language});
                 }
             });
             
@@ -302,7 +301,7 @@ app.get("/colorgame", function(req, res){
 });
 
 app.get("/score-keeper", function(req, res){
-	res.render("score", { header: "Maciej Kuta | Portfolio | Bootcamp | Score keeper" });
+	res.render("score", { header: "Maciej Kuta | Portfolio | Bootcamp | Score keeper", type:req.params.type });
 })
 
 
@@ -323,7 +322,7 @@ app.get("/projects/:id/edit", isLoggedIn, function(req, res){
         if(err) {
             console.log(err);
         } else {
-            res.render("./projects/edit", {project: project, header: "Maciej Kuta | Portfolio | Edytowanie nowinki"});
+            res.render("./projects/edit", {project: project, header: "Maciej Kuta | Portfolio | Edytowanie nowinki", type:req.params.type});
         }
     });
 });
@@ -333,7 +332,7 @@ app.get("/user/:id/edit", isLoggedIn, function(req, res){
         if(err) {
             console.log(err);
         } else {
-            res.render("uedit", {user: user, header: "Maciej Kuta | Portfolio | Edytowanie usera"});
+            res.render("uedit", {user: user, header: "Maciej Kuta | Portfolio | Edytowanie usera", type:req.params.type,});
         }
     });
 });
@@ -349,7 +348,7 @@ app.get("/projects/:id", function(req, res){
                 if(err){
                     console.log(err);
                 } else {
-                    res.render("./projects/show", {project: project, currentUser: req.user, header: "Maciej Kuta | Portfolio | " + project.title, reviews: reviews, lang: req.language});
+                    res.render("./projects/show", {project: project, currentUser: req.user, type:req.params.type, header: "Maciej Kuta | Portfolio | " + project.title, reviews: reviews, lang: req.language});
                 }
             });
            
@@ -357,13 +356,13 @@ app.get("/projects/:id", function(req, res){
     });
 });
 
-app.get("/projects", function(req, res){
-    Project.find({}, function(err, projects){
+app.get("/projects/type/:type", function(req, res){
+    Project.find({type: req.params.type}, function(err, projects){
         if(err) {
             console.log(err);
         } else {
 			i18n.setLocale(req.language)
-            res.render("./projects/index", {projects: projects, currentUser: req.user, header: "Maciej Kuta | Portfolio | Moje projekty", my:""});
+            res.render("./projects/index", {projects: projects, currentUser: req.user, type: req.params.type, header: "Maciej Kuta | Portfolio | Projekty " + req.params.type, my:""});
         }
     });
 });
@@ -376,12 +375,16 @@ app.post("/projects",upload.single("profile"),function(req, res){
             profile: result.secure_url,
             status: req.body.status,
             link: req.body.link,
-            pictures: []
+            pictures: [],
+            added: Date.now()
         });
         Project.create(newProject, function(err, project){
             if(err) {
                 console.log(err)
             } else {
+                console.log(req.body);
+                project.type= req.body.type;
+                project.save();
                 res.redirect("/projects/" + project._id);
             }
         });
@@ -422,6 +425,7 @@ app.post("/projects/new/picture",upload.single("picture"), function(req, res){
                 console.log(err)
             } else {
                 project.pictures.push(result.secure_url);
+                project.added = Date().now();
                 project.save();
                 res.redirect("/projects/" + project._id);
             }
@@ -439,6 +443,7 @@ app.post("/projects/edit/picture", upload.single("picture"), function(req, res){
                 console.log(err);
             } else {
                 project.profile = result.secure_url;
+                project.added = Date().now();
                 project.save();
                 res.redirect("/projects/" + project._id);
             }
@@ -452,6 +457,10 @@ app.put("/projects/:id", isLoggedIn, function(req, res){
         if(err) {
             console.log(err);
         } else {
+            console.log(req.body.project.type);
+            updatedProject.added = Date.now();
+            updatedProject.type = req.body.project.type;
+            updatedProject.save();
             res.redirect("/projects/" + req.params.id);
         }
     });
