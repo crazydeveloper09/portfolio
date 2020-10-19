@@ -1,0 +1,59 @@
+<% include ../partials/header %>
+<br>
+<br>
+<br>
+<br>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-title text-center" id="name">
+                    <br>
+                    Edytuj zamówienie <%= order.websiteTitle %>
+                   
+                </div>
+                <div class="card-body">
+                   
+                        <form action="/website-orders/<%= order._id %>?_method=PUT" method="post">
+                            <p class="normalf">Edytuj typ zamówienia</p>
+                            <select id="select" name="order[type]" class="form-control" disabled>
+                                <option><%= order.type %></option>
+                                <option value="new" style="color:black">Nowa strona</option>
+                                <option value="update" style="color:black">Aktualizacja wyglądu / strony</option>
+                            </select>
+                            <br>
+                           
+                                <p class="normalf">Edytuj nazwę strony</p>
+                                <input type="text" name="order[websiteTitle]" value="<%= order.websiteTitle %>" placeholder="np. Portfolio" class="form-control">
+                                <br>
+                                <p class="normalf">Edytuj link do aktualnej wersji</p>
+                                <input type="text" name="order[previousWebsite]" value="<%= order.previousWebsite %>" placeholder="np. https://wwww.danmag.pl" class="form-control">
+                                <br>
+                                <p class="normalf">Edytuj czego oczekujesz po aktualizacji</p>
+                                <textarea name="order[whatYouWish]" id="description" placeholder="np. Strona bardziej dostosowana do urządzeń mobilnych" class="form-control"><%= order.whatYouWish %></textarea>
+                                <br>
+                                <p class="normalf">Edytuj imię i nazwisko</p>
+                                <input type="text" name="order[name]" value="<%= order.name %>" placeholder="np. Jan Kowalski" class="form-control">
+                                <br>
+                                <p class="normalf">Edytuj status polski</p>
+                                <input type="text" name="order[status]" value="<%= order.status %>" placeholder="np. Zostały ostatnie poprawki" class="form-control">
+                                <br>
+                                <p class="normalf">Edytuj status angielski</p>
+                                <input type="text" name="order[statusEn]" value="<%= order.statusEn %>" placeholder="np. Just last fixes" class="form-control">
+                                <br>
+                                <p class="normalf">Edytuj email kontaktowy</p>
+                                <input type="email" name="order[email]" value="<%= order.email %>" placeholder="np. jankowalski@gmail.com" class="form-control">
+                                <br>
+                                <input type="submit" value="Edytuj zamówienie" class="btn-mine">
+                            
+                        </form>
+                   
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>

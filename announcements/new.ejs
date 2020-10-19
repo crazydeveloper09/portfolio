@@ -1,0 +1,30 @@
+<% include ../partials/header %>
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-tiel text-center" id="name">
+                    <br>
+                    Dodaj ogłoszenie
+                </div>
+                <div class="card-body">
+                    <form action="/announcements" method="post">
+                        <p class="normalf">Treść ogłoszenia po polsku</p>
+                        <textarea name="polish" id="polish" class="form-control" placeholder="Polski"></textarea>
+                        <br>
+                        <p class="normalf">Treść ogłoszenia po angielsku</p>
+                        <textarea name="english" id="english" class="form-control" placeholder="Angielski"></textarea>
+                        <br>
+                        <input type="submit" value="Dodaj ogłoszenie" class="btn btn-outline-primary">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>

@@ -1,0 +1,35 @@
+<% include ../partials/header %>
+<br>
+<br>
+<br>
+<br>
+<div class="container" id="addAchievement">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-lg-12">
+            <div class="card">
+                <br>
+                <div class="card-title text-center" id="name">
+                    Dodaj osiągnięcie dla użytkownika <%= user.username %>
+                </div>
+                <div class="card-body">
+                    <form action="/users/<%= user._id %>/achievements" method="post" enctype="multipart/form-data">
+                        <p class="normalf">
+                            Tytuł osiągnięcia
+                        </p>
+                        <input type="text" name="title" placeholder="Tytuł osiagnięcia" class="form-control">
+                        <br>
+                        <p class="normalf">
+                            Zdjęcie osiągnięcia
+                        </p>
+                        <input type="file" name="picture" style="color:#c9c7c7">
+                        <br>
+                        <br>
+                        <input type="submit" value="Dodaj osiągnięcie" class="btn btn-outline-primary">
+                    </form>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+<% include ../partials/footer %>

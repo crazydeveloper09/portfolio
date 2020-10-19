@@ -10,7 +10,8 @@
 
 	  gtag('config', 'UA-154851109-1');
 	</script>
-
+	<meta name="google-site-verification" content="m6HBYXUqFKJFFcrDg1qKzZU2u49hXYN43QUlDmc8Qg4" />
+	<meta name="theme-color" content="#01597c">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -18,22 +19,22 @@
     <meta name="description" content="Welcome to my portfolio. I am Maciej Kuta. I am 18. Here you can find more informations about me, my programming adventure and my projects I do or did. Basically I write websites from scratch. I do backend and frontend. I use newest technologies like Node.js and MongoDB. Hope you will like my projects">
     <title><%= header %></title>
 	<meta name="google-site-verification" content="9FSWyiNz8TkGmlAX0sy3hKJ3g1StIuKKl3AxjNuC09Y" />
-    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.js" async></script>
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,700" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/b2ec1cb26d.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/b2ec1cb26d.js" crossorigin="anonymous" async></script>
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/style.css">
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous" async></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous" async></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous" async></script>
 </head>
-<body style="background: #dddddd">
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-blue" id="nav">
+<body>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-black">
         <div class="container">
-            <a class="navbar-brand text-center" style="font-family: 'Nunito', sans-serif; color:white; font-weight:100; text-transform: uppercase">💻 Maciej Kuta</a>
+            <a class="navbar-brand" href="/"><img src="https://res.cloudinary.com/syberiancats/image/upload/v1593517882/krzh7aj32jo9t2qyoe1p.png" alt="logo" id="nav"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="border:none;">
-        <span class="navbar-toggler-icon" style="color:#FBFA04"></span>
+        <span class="navbar-toggler-icon"></span>
       </button>
     
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -48,79 +49,22 @@
 				</li>
       <% } %>
       <% if(typeof my !== 'undefined'){ %>
-        <div class="dropdown">
-          <button class="btn btn-transparent dropdown-toggle justify-content-center" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 1rem; color: white; text-transform: uppercase; top: 0;font-family: 'Nunito', sans-serif;">
-            <%= language.__("Moje projekty") %>
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background: #dddddd">
-            <% if(type !== 'undefined'){ %>
-              <% if(type === "not-ended"){ %>
-                <a class="dropdown-item active" href= "/projects/type/not-ended"><%= language.__("Nieskończone") %></a>
-                <a class="dropdown-item" href= "/projects/type/awaiting"><%= language.__("Oczekujące") %></a>
-                <a class="dropdown-item" href= "/projects/type/all-good"><%= language.__("Skończone") %></a>
-              <% } else if(type==="awaiting"){ %>
-                <a class="dropdown-item" href= "/projects/type/not-ended"><%= language.__("Nieskończone") %></a>
-                <a class="dropdown-item active" href= "/projects/type/awaiting"><%= language.__("Oczekujące") %></a>
-                <a class="dropdown-item" href= "/projects/type/all-good"><%= language.__("Skończone") %></a>
-              <% } else if(type==="all-good"){ %>
-                <a class="dropdown-item" href= "/projects/type/not-ended"><%= language.__("Nieskończone") %></a>
-                <a class="dropdown-item" href= "/projects/type/awaiting"><%= language.__("Oczekujące") %></a>
-                <a class="dropdown-item active" href= "/projects/type/all-good"><%= language.__("Skończone") %></a>
-              <% } else { %>
-                <a class="dropdown-item" href= "/projects/type/not-ended"><%= language.__("Nieskończone") %></a>
-              
-                <a class="dropdown-item" href= "/projects/type/awaiting"><%= language.__("Oczekujące") %></a>
-                <a class="dropdown-item" href= "/projects/type/all-good"><%= language.__("Skończone") %></a>
-                
-              <% } %>
-            <% } else { %>
-              <a class="dropdown-item" href= "/projects/type/not-ended"><%= language.__("Nieskończone") %></a>
-              
-              <a class="dropdown-item" href= "/projects/type/awaiting"><%= language.__("Oczekujące") %></a>
-              <a class="dropdown-item" href= "/projects/type/all-good"><%= language.__("Skończone") %></a>
-            <% } %>
+        <li class="nav-item">
+         
+            <a class="nav-link active" href="/projects">
+              <%= language.__("Moje projekty") %>
+            </a>
             
-            
-              
-          </div>
-        </div>
+        </li>
+       
       <% } else { %>
-        <div class="dropdown">
-          <button class="btn btn-transparent dropdown-toggle justify-content-center" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 1rem; color: rgba(255,255,255,.5); text-transform: uppercase; top: 0;font-family: 'Nunito', sans-serif;">
-            <%= language.__("Moje projekty") %>
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background: #dddddd">
-            <% if(type !== 'undefined'){ %>
-              <% if(type === "not-ended"){ %>
-                <a class="dropdown-item active" href= "/projects/type/not-ended"><%= language.__("Nieskończone") %></a>
-                <a class="dropdown-item" href= "/projects/type/awaiting"><%= language.__("Oczekujące") %></a>
-                <a class="dropdown-item" href= "/projects/type/all-good"><%= language.__("Skończone") %></a>
-              <% } else if(type==="awaiting"){ %>
-                <a class="dropdown-item" href= "/projects/type/not-ended"><%= language.__("Nieskończone") %></a>
-                <a class="dropdown-item active" href= "/projects/type/awaiting"><%= language.__("Oczekujące") %></a>
-                <a class="dropdown-item" href= "/projects/type/all-good"><%= language.__("Skończone") %></a>
-              <% } else if(type==="all-good"){ %>
-                <a class="dropdown-item" href= "/projects/type/not-ended"><%= language.__("Nieskończone") %></a>
-                <a class="dropdown-item" href= "/projects/type/awaiting"><%= language.__("Oczekujące") %></a>
-                <a class="dropdown-item active" href= "/projects/type/all-good"><%= language.__("Skończone") %></a>
-              <% } else { %>
-                <a class="dropdown-item" href= "/projects/type/not-ended"><%= language.__("Nieskończone") %></a>
-              
-                <a class="dropdown-item" href= "/projects/type/awaiting"><%= language.__("Oczekujące") %></a>
-                <a class="dropdown-item" href= "/projects/type/all-good"><%= language.__("Skończone") %></a>
-                
-              <% } %>
-            <% } else { %>
-              <a class="dropdown-item" href= "/projects/type/not-ended"><%= language.__("Nieskończone") %></a>
-              
-              <a class="dropdown-item" href= "/projects/type/awaiting"><%= language.__("Oczekujące") %></a>
-              <a class="dropdown-item" href= "/projects/type/all-good"><%= language.__("Skończone") %></a>
-            <% } %>
+        <li class="nav-item">
+         
+            <a class="nav-link" href="/projects">
+              <%= language.__("Moje projekty") %>
+            </a>
             
-            
-              
-          </div>
-        </div>
+        </li>
       <% } %>
       
 			
@@ -135,25 +79,49 @@
 			<% } %>
            
            
-			 
-			                  <div class="dropdown">
-                            <button class="btn btn-transparent dropdown-toggle justify-content-center" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 1rem; color: rgba(255,255,255,.5); text-transform: uppercase">
-                               Bootcamp
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background: #dddddd">
-                             <a class="dropdown-item" href= "/colorgame"><%= language.__("Zgadywanie kolorów") %></a>
-                                
-                            <a class="dropdown-item" href= "/score-keeper">Score keeper</a>
-                              
-                                
-                            </div>
-                        </div>
+      <% if(typeof bootcamps !== 'undefined'){ %>
+				<li class="nav-item">
+					<a class="nav-link active" href="/bootcamps"><%= language.__("Bootcamp") %></a>
+				</li>
+			<% } else { %>
+				<li class="nav-item">
+					<a class="nav-link" href="/bootcamps"><%= language.__("Bootcamp") %></a>
+				</li>
+			<% } %>
+			<% if(typeof recommended !== 'undefined'){ %>
+				<li class="nav-item">
+					<a class="nav-link active" href="/recommended-links"><%= language.__("Polecane linki") %></a>
+				</li>
+			<% } else { %>
+				<li class="nav-item">
+					<a class="nav-link" href="/recommended-links"><%= language.__("Polecane linki") %></a>
+				</li>
+      <% } %>
+      <% if(typeof orders !== 'undefined'){ %>
+				<li class="nav-item">
+					<a class="nav-link active" href="/website-orders/description"><%= language.__("Zamówienia") %></a>
+				</li>
+			<% } else { %>
+				<li class="nav-item">
+					<a class="nav-link" href="/website-orders/description"><%= language.__("Zamówienia") %></a>
+				</li>
+			<% } %>
+      <li class="nav-item">
+        <a class="nav-link" href="/support"><%= language.__('Wesprzyj') %></a>
+      </li>             
 			 
             <% if(typeof currentUser !== 'undefined'){ %>
               <% if(currentUser.username === "Admin"){ %>
-                <li class="nav-item">
-                    <a class="nav-link" href="/projects/new">Dodaj projekt</a>
-                </li>
+                <% if(typeof add !== 'undefined'){ %>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="/projects/new">Dodaj projekt</a>
+                  </li>
+                <% } else { %>
+                  <li class="nav-item">
+                    <a class="nav-link"  data-toggle="modal" data-target="#addAProject">Dodaj projekt</a>
+                  </li>
+                <% } %>
+                
               
                 <li class="nav-item">
                     <a class="nav-link" href="/logout"><%= language.__('Wyloguj') %></a>
@@ -164,22 +132,6 @@
                 </li>
               <% } %>
               
-            <% } else { %>
-              
-               
-                  <li class="nav-item">
-                      <a class="nav-link" href="/login"><%= language.__('Zaloguj się') %></a>
-                  </li>
-                
-                  <li class="nav-item">
-                      <a class="nav-link" href="/register"><%= language.__('Zarejestruj się') %></a>
-                  </li>
-					<li class="nav-item">
-                      <a class="nav-link" href="/support"><%= language.__('Wesprzyj') %></a>
-                  	</li>
-              
-                
-             
             <% } %>
         </ul>
        
@@ -189,4 +141,60 @@
         
         
     </nav>
-	
+    <div class="modal fade" id="addAProject" tabindex="-1" role="dialog" aria-labelledby="addAProject" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="name">Dodaj nowy projekt</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true" style="color: #77a6f2">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="/projects" method="post" enctype="multipart/form-data">
+              <p class="normalf">Tytuł projektu</p>
+              <input type="text" name="title" placeholder="np. Portfolio" class="form-control">
+              <br>
+              <p class="normalf">Opis projektu</p>
+              <textarea name="description" placeholder="np. Fajny, dla mojego przyjaciela" id="description" class="form-control"></textarea>
+              <br>
+              <p class="normalf">Opis projektu po angielsku</p>
+              <textarea name="english" placeholder="np. Good, for my friend" id="english" class="form-control"></textarea>
+              <br>
+              <p class="normalf">Status projektu</p>
+              <input type="text" name="status" placeholder="np. Tylko poprawki" class="form-control">
+              <br>
+              <p class="normalf">Status projektu po angielsku</p>
+              <input type="text" name="statusEn" placeholder="np. Just fixes" class="form-control">
+              <br>
+              <p class="normalf">Link do projektu</p>
+              <input type="text" name="link" placeholder="np. https://danmag.herokuapp.com" class="form-control">
+              <br>
+              <p class="normalf">
+                Typ projektu
+              </p>
+              <select name="type" class="form-control" style="background: none;
+                    color: #c9c7c7;
+                    border-bottom: 1px solid #77a6f2;
+                    border-top: none;
+                    border-right: none;
+                    border-left: none;">
+                    
+                <option value="not-ended" style="color:black">Nieskończony</option>
+                <option value="awaiting" style="color:black">Oczekujący</option>
+                <option value="done" style="color:black">Skończony</option>
+              </select>
+              <br>
+              <p class="normalf">Zdjęcie główne projektu</p>
+              
+              <input type="file" name="profile" style="color:#c9c7c7">
+              <br>
+              <br>
+              <input type="submit" value="Dodaj projekt" class="btn-mine">
+              <button type="button" class="btn-mine-full" data-dismiss="modal">Zamknij mnie</button>
+              </form>
+          </div>
+         
+        </div>
+      </div>
+    </div>

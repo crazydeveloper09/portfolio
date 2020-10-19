@@ -1,0 +1,70 @@
+body:before {
+	content: '';
+    background-size: cover;
+    background-position: center center; 
+	
+	background: url(tlo.jpg) no-repeat;
+	background-attachment: fixed;
+	height: 100vh;
+	width: 100vw;
+	position: fixed;
+	
+}
+
+body,
+html {
+    margin:0;
+	padding:0;
+   
+ 
+}
+.btn-mine {
+    padding: 6px 12px;
+    background: none;
+    color: #77a6f2;
+    font-family: 'Nunito', sans-serif;
+    border: 1px solid #77a6f2;
+    text-decoration: none;
+    border-radius: .25rem;
+  }
+  
+  .btn-mine:hover {
+    background: #77a6f2;
+    color: white;
+    text-decoration: none;
+  }
+  #name {
+      font-family: 'Nunito', sans-serif;
+      
+      color: white;
+      font-size:25px;
+  }
+  .card {
+    background: #133F7D;
+    opacity: 0.9;
+    margin-top: 30%;
+  }
+  input[type=text],
+input[type=password],
+input[type=number] {
+	background: none;
+	border: 1px solid #77a6f2;
+	border-bottom: 1px solid #77a6f2;
+	 font-family: 'Nunito', sans-serif;
+    
+    color: white;
+}
+
+input[type=text]::placeholder,
+input[type=password]::placeholder,
+input[type=number]::placeholder {
+	font-family: 'Nunito', sans-serif;
+    
+  color: white;
+}
+@media (max-width: 992px) {
+	
+	body:before {
+		background: url(code2.png);
+	}
+}

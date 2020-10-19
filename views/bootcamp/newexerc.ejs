@@ -1,0 +1,34 @@
+<% include ../partials/header %>
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-title text-center" id="name">
+                    <br>
+                    Dodaj ćwiczenie do bootcampa <%= bootcamp.title %>
+                </div>
+                <div class="card-body">
+                    <form action="/bootcamps/<%= bootcamp._id %>/exercises" method="post" enctype="multipart/form-data">
+                        <p class="normalf">Wpisz nazwę ćwiczenia</p>
+                        <input type="text" name="title" class="form-control" placeholder="Nazwa ćwiczenia">
+                    
+                        <br>
+                        <p class="normalf">Wpisz link do ćwiczenia</p>
+                        <input type="text" name="link" class="form-control" placeholder="Link do ćwiczenia">
+                        <br>
+                        <p class="normalf">Wybierz zdjęcie</p>
+                        <input type="file" name="profile">
+                        <br>
+                        <br>
+                        <input type="submit" value="Dodaj ćwiczenie" class="btn btn-outline-primary">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<% include ../partials/footer %>

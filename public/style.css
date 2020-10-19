@@ -1,95 +1,237 @@
 
 
+body,html {
+  background:#133F7D;
+}
 
+.active {
+  background: #133F7D;
+  color: white;
+}
+.progress {
+  background:#212529;
+} 
+.nav-link:hover {
+  background: #133F7D;
+  color: white;
+}
+.alert-info,
+.alert-danger,
+.alert-light {
+  background: #133F7D; 
+  color:white; 
+  border-color:#1a1a1a;
+}
 .nav-link {
 	font-family: 'Nunito', sans-serif;
 	text-transform: uppercase;
 }
 
-.bg-blue {
-    background:#01597c;
+.bg-black {
+    background:#082447;
+}
+.btn-mine-full {
+  padding: 6px 12px;
+  background: #77a6f2;
+  color: white;
+  font-family: 'Nunito', sans-serif;
+  border: 1px solid #77a6f2;
+  text-decoration: none;
+  border-radius: .25rem;
+}
+
+.btn-mine {
+  padding: 6px 12px;
+  background: none;
+  color: #77a6f2;
+  font-family: 'Nunito', sans-serif;
+  border: 1px solid #77a6f2;
+  text-decoration: none;
+  border-radius: .25rem;
+}
+
+.btn-mine:hover {
+  background: #77a6f2;
+  color: white;
+  text-decoration: none;
 }
 #name {
     font-family: 'Nunito', sans-serif;
     
-    color: #01597c;
-    font-size:20px;
+    color: white;
+    font-size:25px;
+}
+#description_r {
+  color: #c9c7c7;
+  font-size:17px;
+  font-family: 'Nunito', sans-serif;
+}
+
+a {
+  color: #77a6f2;
+}
+
+#description_l {
+  color: #c9c7c7;
+  font-size:15px;
+  font-family: 'Nunito', sans-serif;
 }
 .normal {
     font-family: 'Nunito', sans-serif;
     
-    color: #01597c;
-    font-size:15px;
+    color: white;
+    font-size:17px;
 }
+.card,
+.modal-content {
+  background: #082447;
+}
+
 .star {
   cursor:pointer;
 }
 .normalf {
     font-family: 'Nunito', sans-serif;
     
-    color: #01597c;
+    color:  white;
     font-size:19px;
 }
 .footer {
 	font-family: 'Nunito', sans-serif;
     
-    color: #01597c;
+    color: white;
     font-size:13px;
 }
 .date {
   font-family: 'Nunito', sans-serif;
   text-transform: uppercase; 
-  color: #01597c;
+  color: white;
   font-size:15px;
 }
-
+.blue {
+	font-family: 'Nunito', sans-serif;
+    
+    color: white;
+}
 .update {
   font-family: 'Nunito', sans-serif;
  
   color: rgb(117, 116, 116);
   font-size:13px;
 }
+.dateO {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  color: #77a6f2;
+  font-size:17px;
+}
 .author {
   font-family: 'Nunito', sans-serif;
   font-weight: 700;    
-  color: #01597c;
+  color: white;
   font-size:18px;
 }
+.about {
+	font-family: 'Nunito', sans-serif;
+	    
+	  color:white;
+	  font-size:17px;
+}
 .language {
-	color: #01597c;
+	color:white;
 	
-	border-right: 1px solid grey;
+  font-size: 13px;
 	padding: 5px;
 }
 input[type=text],
-input[type=password] {
+input[type=password],
+input[type=number],
+input[type=email],
+#select {
 	background: none;
 	border: none;
-	border-bottom: 1px solid #01597c;
+	border-bottom: 1px solid #133F7D;
 	 font-family: 'Nunito', sans-serif;
     
-    color: #01597c;
+    color: white;
 }
 
 input[type=text]::placeholder,
-input[type=password]::placeholder {
+input[type=password]::placeholder,
+input[type=number]::placeholder,
+input[type=email]::placeholder {
 	font-family: 'Nunito', sans-serif;
     
-  color: #01597c;
+  color: white;
 }
-#description::placeholder {
+#description::placeholder,
+#polish::placeholder,
+#english::placeholder {
   font-family: 'Nunito', sans-serif;
     
-  color: #01597c;
+  color:white;
 }
 
-#description {
+#username,
+#password {
+	border: 1px solid #133F7D;
+}
+
+.main {
+  font-family: "Nunito", sans-serif;
+  color: white;
+  font-size: 50px;
+  
+  text-shadow: -2px 0 #133F7D, 0 2px #133F7D, 2px 0 #133F7D, 0 -2px #133F7D;
+}
+
+.technologies {
+  font-family: "Nunito", sans-serif;
+  color: white;
+  font-size: 20px;
+  
+  
+}
+.whatOffer {
+  font-family: "Nunito", sans-serif;
+  color: #133F7D;
+  font-size: 23px;
+}
+.do {
+	font-family: "Nunito", sans-serif;
+  color: white;
+  font-size: 22px;
+}
+
+.bg-blue{
+  background: #0c5460;
+}
+
+.fa, .fas {
+  font-weight: 600;
+}
+
+#description,
+#polish,
+#english {
   background: none;
-	color: #01597c;
-	border-bottom: 1px solid #01597c;
+	color: white;
+	border-bottom: 1px solid #133F7D;
 	border-top: none;
 	border-right: none;
   border-left: none;
 }
- 
-  
+#nav {
+	height: 58px;
+}
+
+@media (max-width: 992px){
+	#nav {
+		height: 45px;
+  }
+  #description_l {
+    color: white;
+    font-size:15px;
+    font-family: 'Nunito', sans-serif;
+  }
+}
